@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 // import { postFoodDetails } from "../api/postFoodDetails";
-import { PrismaClient } from "@prisma/client/extension";
+// import { PrismaClient } from "@prisma/client/extension";
 import { FoodList } from "../components/foodList.";
 
 export default function FoodDetails() {
-  const prisma = new PrismaClient();
+  // const prisma = new PrismaClient();
   const [foodDetails, setFoodDetails] = useState({});
   let displayFoodForm = () => {
     let foodForm = document.getElementById("foodForm");
