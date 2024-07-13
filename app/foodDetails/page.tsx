@@ -1,12 +1,12 @@
 "use client";
 
 import { useEffect, useState } from "react";
-// import { postFoodDetails } from "../api/postFoodDetails";
-// import { PrismaClient } from "@prisma/client/extension";
+import { postFoodDetails } from "../api/postFoodDetails";
+import { PrismaClient } from "@prisma/client/extension";
 import { FoodList } from "../components/foodList.";
 
 export default function FoodDetails() {
-  // const prisma = new PrismaClient();
+  const prisma = new PrismaClient();
   const [foodDetails, setFoodDetails] = useState({});
   let displayFoodForm = () => {
     let foodForm = document.getElementById("foodForm");
@@ -37,16 +37,16 @@ export default function FoodDetails() {
     });
   };
 
-//   useEffect(() => {
-//     async () => {
-//       await postFoodDetails(foodDetails)
-//         .then(async () => prisma.$disconnect())
-//         .catch(async (e) => {
-//           console.error(e);
-//           prisma.$disconnect();
-//         });
-//     };
-//   }, [foodDetails]);
+  useEffect(() => {
+    async () => {
+      await postFoodDetails(foodDetails)
+        .then(async () => prisma.$disconnect())
+        .catch(async (e) => {
+          console.error(e);
+          prisma.$disconnect();
+        });
+    };
+  }, [foodDetails]);
 
   return (
     <div>
@@ -60,7 +60,7 @@ export default function FoodDetails() {
       </div>
       <div className="hidden" id="foodForm">
         <div className="absolute left-0 z-0 grid w-full items-center justify-center">
-          <div className="flex flex-col shadow-sm shadow-slate-400 p-4 border border-slate-300 bg-white">
+          <div className="flex flex-col shadow-sm shadow-slate-400 p-4 border border-slate-300 bg-white ms-16">
             <div className="w-full flex justify-end items-end mb-5">
               <button
                 className="bg-red-500 w-8 text-white font-bold text-sm hover:bg-red-700"

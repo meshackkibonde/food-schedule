@@ -1,11 +1,11 @@
-// import { PrismaClient, Prisma } from "@prisma/client";
+import { PrismaClient, Prisma } from "@prisma/client";
 
-// const prisma = new PrismaClient();
+const prisma = new PrismaClient();
 
-// async function postFoodDetails(foodDetails: any) {
-//   const foodDetail = await prisma.foodDetail.create({
-//     data: foodDetails
-//   });
-// }
+async function postFoodDetails(foodDetails: any) {
+  const foodDetail = await prisma.foodDetail.create({
+    data: foodDetails
+  });
+}
 
-// export { postFoodDetails };
+export { postFoodDetails };
