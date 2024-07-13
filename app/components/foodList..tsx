@@ -1,11 +1,10 @@
 import { PrismaClient, Prisma } from "@prisma/client/extension";
 import { getFoodDetails } from "../api/getFoodDetails";
-import { foodData } from "../api/getFoodDetails";
 
 const prisma = new PrismaClient();
 
 function FoodList() {
-  let foodList: foodData;
+  let foodList: any;
   getFoodDetails()
     .then(async (data) => {
       foodList = data;
@@ -30,15 +29,15 @@ function FoodList() {
           </tr>
         </thead>
         <tbody>
-          {foodList!.map((food) => (
-            <tr key={food.name}>
-              <td>{food.name}</td>
-              <td>{food.price}</td>
-              <td>{food.calorie}</td>
-              <td>{food.carbohydrate}</td>
-              <td>{food.fat}</td>
-              <td>{food.protein}</td>
-              <td>{food.vitamin}</td>
+          {foodList!.map((food: any) => (
+            <tr key={food.id}>
+              <td className="border border-slate-300">{food.name}</td>
+              <td className="border border-slate-300">{food.price}</td>
+              <td className="border border-slate-300">{food.calorie}</td>
+              <td className="border border-slate-300">{food.carbohydrate}</td>
+              <td className="border border-slate-300">{food.fat}</td>
+              <td className="border border-slate-300">{food.protein}</td>
+              <td className="border border-slate-300">{food.vitamin}</td>
             </tr>
           ))}
         </tbody>
