@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { postFoodDetails } from "../api/postFoodDetails";
+// import { postFoodDetails } from "../api/postFoodDetails";
 import { PrismaClient } from "@prisma/client/extension";
 import { FoodList } from "../components/foodList.";
 
@@ -37,16 +37,16 @@ export default function FoodDetails() {
     });
   };
 
-  useEffect(() => {
-    async () => {
-      await postFoodDetails(foodDetails)
-        .then(async () => prisma.$disconnect())
-        .catch(async (e) => {
-          console.error(e);
-          prisma.$disconnect();
-        });
-    };
-  }, [foodDetails]);
+//   useEffect(() => {
+//     async () => {
+//       await postFoodDetails(foodDetails)
+//         .then(async () => prisma.$disconnect())
+//         .catch(async (e) => {
+//           console.error(e);
+//           prisma.$disconnect();
+//         });
+//     };
+//   }, [foodDetails]);
 
   return (
     <div>

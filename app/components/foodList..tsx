@@ -1,20 +1,20 @@
-import { PrismaClient, Prisma } from "@prisma/client/extension";
-import { getFoodDetails } from "../api/getFoodDetails";
-import { foodData } from "../api/getFoodDetails";
+// import { PrismaClient, Prisma } from "@prisma/client/extension";
+// import { getFoodDetails } from "../api/getFoodDetails";
+// import { foodData } from "../api/getFoodDetails";
 
-const prisma = new PrismaClient();
+// const prisma = new PrismaClient();
 
 function FoodList() {
-  let foodList: foodData;
-  getFoodDetails()
-    .then(async (data) => {
-      foodList = data;
-      prisma.$disconnect();
-    })
-    .catch(async (e) => {
-      console.error(e);
-      prisma.$disconnect();
-    });
+//   let foodList: foodData;
+//   getFoodDetails()
+//     .then(async (data) => {
+//       foodList = data;
+//       prisma.$disconnect();
+//     })
+//     .catch(async (e) => {
+//       console.error(e);
+//       prisma.$disconnect();
+//     });
   return (
     <div>
       <table>
@@ -30,7 +30,7 @@ function FoodList() {
           </tr>
         </thead>
         <tbody>
-          {foodList!.map((food) => (
+          {/* {foodList!.map((food) => (
             <tr key={food.name}>
               <td>{food.name}</td>
               <td>{food.price}</td>
@@ -40,7 +40,7 @@ function FoodList() {
               <td>{food.protein}</td>
               <td>{food.vitamin}</td>
             </tr>
-          ))}
+          ))} */}
         </tbody>
       </table>
     </div>
