@@ -31,7 +31,7 @@ function FoodList() {
         </thead>
         <tbody>
           {foodList!.map((food) => (
-            <tr>
+            <tr key={food.name}>
               <td>{food.name}</td>
               <td>{food.price}</td>
               <td>{food.calorie}</td>
