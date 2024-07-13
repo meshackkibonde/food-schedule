@@ -50,7 +50,7 @@ export default function FoodDetails() {
 
   return (
     <div>
-      <div className="w-full flex justify-end items-end p-5">
+      <div className="w-full flex justify-end items-end p-5 relative">
         <button
           className="bg-blue-500 p-1 rounded-md w-12 text-white font-bold text-lg hover:bg-blue-700"
           onClick={displayFoodForm}
@@ -59,8 +59,8 @@ export default function FoodDetails() {
         </button>
       </div>
       <div className="hidden" id="foodForm">
-        <div className="grid w-full items-center justify-center">
-          <div className="flex flex-col shadow-sm shadow-slate-400 p-4 border border-slate-300">
+        <div className="absolute left-0 z-0 grid w-full items-center justify-center">
+          <div className="flex flex-col shadow-sm shadow-slate-400 p-4 border border-slate-300 bg-white">
             <div className="w-full flex justify-end items-end mb-5">
               <button
                 className="bg-red-500 w-8 text-white font-bold text-sm hover:bg-red-700"
@@ -155,7 +155,9 @@ export default function FoodDetails() {
           </div>
         </div>
       </div>
+      <div className="z-50">
       <FoodList />
+      </div>
     </div>
   );
 }
