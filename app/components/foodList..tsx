@@ -1,18 +1,16 @@
-import { PrismaClient, Prisma } from "@prisma/client/extension";
 import { getFoodDetails } from "../api/getFoodDetails";
-
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 function FoodList() {
   let foodList: any;
   getFoodDetails()
     .then(async (data) => {
       foodList = data;
-      prisma.$disconnect();
+      prisma?.$disconnect();
     })
     .catch(async (e) => {
       console.error(e);
-      prisma.$disconnect();
+      prisma?.$disconnect();
     });
   return (
     <div className="p-2">
@@ -29,7 +27,7 @@ function FoodList() {
           </tr>
         </thead>
         <tbody>
-          {foodList!.map((food: any) => (
+          {foodList?.map((food: any) => (
             <tr key={food.id}>
               <td className="border border-slate-300">{food.name}</td>
               <td className="border border-slate-300">{food.price}</td>

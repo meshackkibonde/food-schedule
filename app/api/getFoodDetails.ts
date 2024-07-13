@@ -1,10 +1,8 @@
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import prisma from "@/lib/prisma";
 
 
 async function getFoodDetails() {
-  const foodDetails = await prisma.foodDetail.findMany();
+  const foodDetails = await prisma?.foodDetail.findMany();
   return foodDetails;
 }
 

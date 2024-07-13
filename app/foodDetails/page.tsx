@@ -2,11 +2,10 @@
 
 import { useEffect, useState } from "react";
 import { postFoodDetails } from "../api/postFoodDetails";
-import { PrismaClient } from "@prisma/client/extension";
+import prisma from "@/lib/prisma";
 import { FoodList } from "../components/foodList.";
 
 export default function FoodDetails() {
-  const prisma = new PrismaClient();
   const [foodDetails, setFoodDetails] = useState({});
   let displayFoodForm = () => {
     let foodForm = document.getElementById("foodForm");
@@ -40,10 +39,10 @@ export default function FoodDetails() {
   useEffect(() => {
     async () => {
       await postFoodDetails(foodDetails)
-        .then(async () => prisma.$disconnect())
+        .then(async () => prisma?.$disconnect())
         .catch(async (e) => {
           console.error(e);
-          prisma.$disconnect();
+          prisma?.$disconnect();
         });
     };
   }, [foodDetails]);
